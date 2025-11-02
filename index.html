@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đang chuyển hướng...</title>
+    <meta property="og:title" content="Sản phẩm đang được giảm giá!" />
+    <meta property="og:description" content="Bấm để xem chi tiết trên Shopee ngay!" />
+    <meta property="og:image" content="https://cf.shopee.vn/file/sg-11134201-22100-fnpz6n56c6iv26_tn" /> 
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; background-color: #f0f2f5; }
+        .loader { border: 8px solid #f3f3f3; border-top: 8px solid #FF6600; border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        p { font-size: 18px; color: #333; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="loader"></div>
+    <p>Đang mở ứng dụng Shopee...</p>
+    <p><a href="https://s.shopee.vn/AA91OFCgvw">Bấm vào đây nếu trang không tự chuyển</a></p>
+
+    <script type="text/javascript">
+        // Link GỐC của bạn
+        const https_link = "https://s.shopee.vn/AA91OFCgvw";
+        
+        // Link để "gọi" App (Deep Link)
+        // Chúng ta mã hóa link gốc để truyền vào deep link
+        const encoded_url = encodeURIComponent(https_link);
+        const deep_link = "shopeevn://reactPath?navigate_url=" + encoded_url;
+
+        // 1. Đặt hẹn giờ: Nếu sau 2.5 giây mà người dùng vẫn ở trang này (tức là app không mở),
+        // thì chuyển họ đến link web
+        const fallbackTimer = setTimeout(function() {
+            window.location.href = https_link;
+        }, 2500);
+
+        // 2. Ngay lập tức cố gắng "gọi" App
+        window.location.href = deep_link;
+
+    </script>
+</body>
+</html>
